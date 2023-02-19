@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         title: 'Redux App',
         theme: ThemeData(primarySwatch: Colors.green),
         home: MyHomePage());
@@ -26,3 +27,9 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
