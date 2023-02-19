@@ -19,13 +19,15 @@ class _ListItemState extends State<ListItem> {
 
   String? msg = "";
 
+  handleAlreadyAdded() {
+    setState(() {
+      msg = "Already Added";
+    });
+  }
+
   handleAdd() {
     setState(() {
-      if (msg == "Item Already Ready") {
-        msg = "";
-      } else {
-        msg = "Item Already Ready";
-      }
+      msg = "";
     });
   }
 
@@ -50,11 +52,12 @@ class _ListItemState extends State<ListItem> {
                 ElevatedButton(
                     onPressed: () {
                       if (!l1!.contains(input)) {
+                        print("ifff");
                         handleAdd();
                         l1?.add(input!);
                         StoreProvider.of<AppState>(context).dispatch(Add(l1));
                       } else {
-                        handleAdd();
+                        handleAlreadyAdded();
                         print(state.l1);
                       }
                     },
